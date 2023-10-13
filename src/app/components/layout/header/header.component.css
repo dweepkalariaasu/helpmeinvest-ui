@@ -1,0 +1,20 @@
+.header {
+    z-index: 100;
+    position: relative;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 60px;
+    width: 100%;
+    background-color: #425563;
+    color: #FFFFFF;
+}
+
+.svg-icon {
+    display: block;
+    width: 60px;
+    height: 60px;
+    float: left;
+    background-image: url("./../../../../assets/schwab.svg");
+}

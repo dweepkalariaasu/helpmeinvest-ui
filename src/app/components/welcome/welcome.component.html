@@ -1,3 +1,21 @@
-<p>welcome works!</p>
+<div class="mat-headline-4" style="margin-top: 24px;">Let's find accounts you're eligible for.</div>
+
+<div>
+  <img src="./../../../assets/what-type-account.png" />
+</div>
+
+<div class="mat-headline-6" style="margin: 16px 0 16px 0;">Which of these situations applies to you?</div>
+
+<mat-card class="nav-card" routerLink="/ask-dob">
+  <mat-card-content>I'm thinking about opening a retirement account</mat-card-content>
+</mat-card>
+<mat-card class="nav-card">
+  <mat-card-content>I'm thinking about moving assets from a retirement plan, such as a 401(k)</mat-card-content>
+</mat-card>
+<mat-card class="nav-card">
+  <mat-card-content class="mat-raised-button">I'm thinking about moving assets from an existing IRA</mat-card-content>
+</mat-card>
+
+<!-- <mat-divider></mat-divider> -->
 
 <app-navigation-buttons (back)="back()" (next)="next()"></app-navigation-buttons>

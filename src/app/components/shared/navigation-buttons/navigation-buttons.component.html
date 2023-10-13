@@ -1,2 +1,6 @@
-<button mat-raised-button (click)="back.emit()">Back</button>
-<button mat-raised-button color="primary" (click)="next.emit()">Continue</button>
+<mat-divider style="margin-top: 32px;"></mat-divider>
+<div style="float: right; margin-bottom: 64px;">
+    <button style="margin: 16px 8px 16px 0;" mat-raised-button (click)="back.emit()">Back</button>
+    <button style="margin: 16px 0 16px 8px; background-color: green;" mat-raised-button color="primary"
+        (click)="next.emit()">Continue</button>
+</div>
