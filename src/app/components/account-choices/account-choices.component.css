@@ -1,0 +1,5 @@
+.left-align {
+  justify-content: left;
+  /* align-items: left; */
+  text-align: left;
+}

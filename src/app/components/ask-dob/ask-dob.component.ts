@@ -13,11 +13,11 @@ export class AskDobComponent {
   }
   
   public next(): void {
-    this.router.navigate(['purpose']);
+    this.router.navigate(['tax-filing']);
   }
 
   public back(): void {
-    this.router.navigate(['welcome']);
+    this.router.navigate(['situations']);
   }
 
 }

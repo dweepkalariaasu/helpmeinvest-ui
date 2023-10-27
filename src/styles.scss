@@ -11,10 +11,25 @@ body {
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 
-// $my-custom-typography-config: mat.define-typography-config(
-//   $headline-1: mat.define-typography-level(112px, 112px, 300, $letter-spacing: -0.05em),
-//   $headline-2: mat.define-typography-level(56px, 56px, 400, $letter-spacing: -0.02em),
-//   $headline-3: mat.define-typography-level(45px, 48px, 400, $letter-spacing: -0.005em),
-//   $headline-4: mat.define-typography-level(34px, 40px, 400),
-//   $headline-5: mat.define-typography-level(24px, 32px, 400),
-// );
+.center-screen {
+  display: flex;
+  justify-content: center;
+  // align-items: center;
+  text-align: center;
+  min-height: 64%;
+  max-width: 1024px;
+  margin: 0 auto;
+}
+
+.nav-card {
+  margin: 16px 0 16px 0;
+  cursor: pointer;
+}
+
+.mat-hd4 {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 28px;
+  font-family: Roboto, sans-serif;
+  letter-spacing: .009375em;
+}

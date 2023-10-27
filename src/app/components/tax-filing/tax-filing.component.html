@@ -1,0 +1,19 @@
+<div class="mat-headline-4" style="margin-top: 24px;" translate>pages.tax-filing.header</div>
+
+<div><img src="./../../../assets/what-type-account.png" /></div>
+
+<div class="mat-headline-6" style="margin: 32px 0 32px 0;" translate>pages.tax-filing.question</div>
+
+<div class="mat-subtitle-1" style="margin: 16px 0 16px 0;" translate>pages.tax-filing.hint</div>
+
+<mat-card class="nav-card" (click)="next()">
+  <mat-card-content class="mat-hd4" translate>pages.tax-filing.option1</mat-card-content>
+</mat-card>
+<mat-card class="nav-card" (click)="next()">
+  <mat-card-content class="mat-hd4" translate>pages.tax-filing.option2</mat-card-content>
+</mat-card>
+<mat-card class="nav-card" (click)="next()">
+  <mat-card-content class="mat-hd4" translate>pages.tax-filing.option3</mat-card-content>
+</mat-card>
+
+<app-navigation-buttons [buttonType]="buttonType.Back" (back)="back()"></app-navigation-buttons>

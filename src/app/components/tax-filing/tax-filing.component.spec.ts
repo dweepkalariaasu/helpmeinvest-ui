@@ -1,16 +1,16 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { WelcomeComponent } from './welcome.component';
+import { TaxFilingComponent } from './tax-filing.component';
 
-describe('WelcomeComponent', () => {
-  let component: WelcomeComponent;
-  let fixture: ComponentFixture<WelcomeComponent>;
+describe('TaxFilingComponent', () => {
+  let component: TaxFilingComponent;
+  let fixture: ComponentFixture<TaxFilingComponent>;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [WelcomeComponent]
+      declarations: [TaxFilingComponent]
     });
-    fixture = TestBed.createComponent(WelcomeComponent);
+    fixture = TestBed.createComponent(TaxFilingComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

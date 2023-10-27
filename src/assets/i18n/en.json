@@ -1,0 +1,55 @@
+{
+  "global": {
+    "buttons": {
+      "continue": "Continue",
+      "back": "Back"
+    }
+  },
+  "pages": {
+    "situations": {
+      "header": "Let's find accounts you're eligible for.",
+      "question": "Which of these situations applies to you?",
+      "option1": "I'm thinking about opening a retirement account",
+      "option2": "I'm thinking about moving assets from a retirement plan, such as a 401(k)",
+      "option3": "I'm thinking about moving assets from an existing IRA"
+    },
+    "ask-dob": {
+      "header": "Let's find accounts you're eligible for.",
+      "question": "When were you born?",
+      "hint": "This helps us determine IRA eligibility and contribution limits.",
+      "dateOfBirth": "Date of Birth"
+    },
+    "tax-filing": {
+      "header": "Let's find accounts you're eligible for.",
+      "question": "How do you file income taxes?",
+      "hint": "This helps us determine IRA eligibility and contribution limits.",
+      "option1": "Single",
+      "option2": "Married filing jointly",
+      "option3": "Married filing separately"
+    },
+    "gross-income": {
+      "header": "Let's find accounts you're eligible for.",
+      "question": "What is your adjusted gross income?",
+      "hint": "This helps us determine IRA eligibility and contribution limits.",
+      "adjustedGrossIncome": "Adjusted Gross Income"
+    },
+    "existing-ira": {
+      "header": "Let's find accounts you're eligible for.",
+      "question": "What type of retirement account do you already have?",
+      "hint": "Be sure to select the same type of IRA",
+      "option1": "Traditional IRA",
+      "option2": "Roth IRA"
+    },
+    "account-choices": {
+      "header": "Based on your answers, you might be eligible for:",
+      "sub-header": "Other Retirement Accounts",
+      "traditionalIra": "Traditional IRA",
+      "rothIra": "Roth IRA",
+      "rolloverIra": "Rollover IRA",
+      "custodialIra": "Custodial IRA",
+      "openTraditionalIra": "Open a Traditional IRA",
+      "openRothIra": "Open a Roth IRA",
+      "openRolloverIra": "Open a Rollover IRA"
+    }
+  }
+}

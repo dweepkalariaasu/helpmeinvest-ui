@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-navigation-buttons',
@@ -7,7 +7,16 @@ import { Component, EventEmitter, Output } from '@angular/core';
 })
 export class NavigationButtonsComponent {
 
+  buttonTypeEnum = ButtonType;
+
+  @Input() buttonType = ButtonType.ContinueBack;
+
   @Output() public next = new EventEmitter();
   @Output() public back = new EventEmitter();
 
+}
+
+export enum ButtonType {
+  ContinueBack,
+  Back
 }

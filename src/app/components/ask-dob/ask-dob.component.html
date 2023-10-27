@@ -1,21 +1,17 @@
-<div class="mat-headline-4" style="margin-top: 24px;">Let's find accounts you're eligible for.</div>
+<div class="mat-headline-4" style="margin-top: 24px;" translate>pages.ask-dob.header</div>
 
-<div>
-  <img src="./../../../assets/what-type-account.png" />
-</div>
+<div><img src="./../../../assets/what-type-account.png" /></div>
 
-<div class="mat-headline-6" style="margin: 16px 0 16px 0;">When were you born?</div>
-<div class="mat-subtitle-1" style="margin: 16px 0 16px 0;">This helps us determine IRA eligibility and contribution limits.</div>
+<div class="mat-headline-6" style="margin: 32px 0 32px 0;" translate>pages.ask-dob.question</div>
+<div class="mat-subtitle-1" style="margin: 16px 0 16px 0;" translate>pages.ask-dob.hint</div>
 
 <mat-form-field appearance="outline" style="margin: 16px 0 16px 0;">
-  <mat-label>Date of birth</mat-label>
+  <mat-label>{{ 'pages.ask-dob.dateOfBirth' | translate }}</mat-label>
   <input matInput [matDatepicker]="picker">
   <mat-hint>MM/DD/YYYY</mat-hint>
   <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
   <mat-datepicker #picker></mat-datepicker>
   <mat-error>This field is required</mat-error>
 </mat-form-field>
-
-<!-- <mat-divider></mat-divider> -->
 
 <app-navigation-buttons (back)="back()" (next)="next()"></app-navigation-buttons>
