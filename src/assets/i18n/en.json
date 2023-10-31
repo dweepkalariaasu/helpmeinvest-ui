@@ -6,6 +6,12 @@
     }
   },
   "pages": {
+    "welcome": {
+      "header": "Open a Schwab account in just 10 minutes.",
+      "sub-header": "Owning your tomorrow starts right now.",
+      "help-me-decide": "What retirement account may be right for me?",
+      "get-started": "Get started >"
+    },
     "situations": {
       "header": "Let's find accounts you're eligible for.",
       "question": "Which of these situations applies to you?",

@@ -1,6 +1,9 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+
+import { MatGridListModule } from '@angular/material/grid-list';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
@@ -15,7 +18,7 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { WelcomeComponent } from './components/welcome/welcome.component';
 import { SituationsComponent } from './components/situations/situations.component';
 import { NavigationButtonsComponent } from './components/shared/navigation-buttons/navigation-buttons.component';
 import { stateReducerMappings } from './store/main.state';
@@ -26,6 +29,8 @@ import { ExistingIraComponent } from './components/existing-ira/existing-ira.com
 import { AccountChoicesComponent } from './components/account-choices/account-choices.component';
 import { TaxFilingComponent } from './components/tax-filing/tax-filing.component';
 import { GrossIncomeComponent } from './components/gross-income/gross-income.component';
+import { MarqueeComponent } from './components/layout/marquee/marquee.component';
+
 
 
 
@@ -36,6 +41,7 @@ export function TranslateLoaderFactory(http: HttpClient) {
 @NgModule({
   declarations: [
     AppComponent,
+    WelcomeComponent,
     SituationsComponent,
     NavigationButtonsComponent,
     HeaderComponent,
@@ -44,7 +50,8 @@ export function TranslateLoaderFactory(http: HttpClient) {
     ExistingIraComponent,
     AccountChoicesComponent,
     TaxFilingComponent,
-    GrossIncomeComponent
+    GrossIncomeComponent,
+    MarqueeComponent
   ],
   imports: [
     BrowserModule,
@@ -61,6 +68,7 @@ export function TranslateLoaderFactory(http: HttpClient) {
         }
       }
     ),
+    MatGridListModule,
     MatButtonModule,
     MatCardModule,
     MatDividerModule,

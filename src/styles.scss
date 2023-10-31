@@ -21,12 +21,32 @@ body {
   margin: 0 auto;
 }
 
+
+
 .nav-card {
   margin: 16px 0 16px 0;
   cursor: pointer;
 }
 
-.mat-hd4 {
+.hmi-hd4 {
+  font-size: 34px;
+  font-weight: 200;
+  line-height: 40px;
+  font-family: Roboto, sans-serif;
+  letter-spacing: .0073529412em;
+  margin: 0 0 64px;
+}
+
+.hmi-hd6 {
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 32px;
+  font-family: Roboto, sans-serif;
+  letter-spacing: .0125em;
+  margin: 0 0 16px;
+}
+
+.hmi-hd8 {
   font-size: 16px;
   font-weight: 400;
   line-height: 28px;

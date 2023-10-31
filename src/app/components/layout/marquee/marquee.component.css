@@ -1,0 +1,8 @@
+.hmi-marquee-content {
+  height: max-content;
+  width: screen-width;
+  background-color: #037dae;
+  color: white;
+  text-align: center;
+  margin-top: 16px;
+}

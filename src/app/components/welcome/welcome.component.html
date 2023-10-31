@@ -1,0 +1,26 @@
+<div class="hmi-ribbon-content">
+  <p class="hmi-hd8" style="padding: 32px 64px 32px 64px;" translate>
+    pages.welcome.help-me-decide
+    <a href="" class="hmi-get-started" style="padding: 0 0 0 16px;" [routerLink]="['/situations']" translate>
+      pages.welcome.get-started
+    </a>
+  </p>
+  
+
+</div>
+
+<mat-grid-list style="margin-bottom: 64px;" gutterSize="16" cols="3" rowHeight="2:2"> 
+     
+  <mat-grid-tile id="tile1" *ngFor="let tile of accountTiles">
+    <div>
+      <img class="card-icon" [src]="tile.imagePath"/>
+      <div class="card-title">{{tile.title}}</div>
+      <div style="margin-bottom: 64px;">{{tile.subTitle}}</div>
+      <div style="margin: 8px;" *ngFor="let link of tile.links">
+        <a href="/" class="hmi-get-started">{{link}} ></a>
+      </div>
+    </div>
+  </mat-grid-tile>
+  
+  
+</mat-grid-list>
