@@ -17,7 +17,7 @@
       <div class="card-title">{{tile.title}}</div>
       <div style="margin-bottom: 64px;">{{tile.subTitle}}</div>
       <div style="margin: 8px;" *ngFor="let link of tile.links">
-        <a href="/" class="hmi-get-started">{{link}} ></a>
+        <a style="cursor: pointer;" class="hmi-get-started" (click)="onLinkClick(link)">{{link}} ></a>
       </div>
     </div>
   </mat-grid-tile>

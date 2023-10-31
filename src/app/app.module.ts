@@ -16,23 +16,23 @@ import { StoreModule } from '@ngrx/store';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
+import { stateReducerMappings } from './store/main.state';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { LayoutModule } from './components/layout/layout.module';
+import { SharedModule } from './components/shared/shared.module';
 import { WelcomeComponent } from './components/welcome/welcome.component';
 import { SituationsComponent } from './components/situations/situations.component';
-import { NavigationButtonsComponent } from './components/shared/navigation-buttons/navigation-buttons.component';
-import { stateReducerMappings } from './store/main.state';
-import { HeaderComponent } from './components/layout/header/header.component';
-import { FooterComponent } from './components/layout/footer/footer.component';
 import { AskDobComponent } from './components/ask-dob/ask-dob.component';
 import { ExistingIraComponent } from './components/existing-ira/existing-ira.component';
 import { AccountChoicesComponent } from './components/account-choices/account-choices.component';
 import { TaxFilingComponent } from './components/tax-filing/tax-filing.component';
 import { GrossIncomeComponent } from './components/gross-income/gross-income.component';
-import { MarqueeComponent } from './components/layout/marquee/marquee.component';
-
-
-
+import { AreYouClientComponent } from './components/are-you-client/are-you-client.component';
+import { OpenOrEnrollComponent } from './components/open-or-enroll/open-or-enroll.component';
+import { NewAccountTypesComponent } from './components/new-account-types/new-account-types.component';
+import { ExistingAccountsComponent } from './components/existing-accounts/existing-accounts.component';
+import { LoginComponent } from './components/login/login.component';
 
 export function TranslateLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -43,15 +43,16 @@ export function TranslateLoaderFactory(http: HttpClient) {
     AppComponent,
     WelcomeComponent,
     SituationsComponent,
-    NavigationButtonsComponent,
-    HeaderComponent,
-    FooterComponent,
     AskDobComponent,
     ExistingIraComponent,
     AccountChoicesComponent,
     TaxFilingComponent,
     GrossIncomeComponent,
-    MarqueeComponent
+    AreYouClientComponent,
+    OpenOrEnrollComponent,
+    NewAccountTypesComponent,
+    ExistingAccountsComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -75,7 +76,9 @@ export function TranslateLoaderFactory(http: HttpClient) {
     MatFormFieldModule,
     MatInputModule,
     MatNativeDateModule,
-    MatDatepickerModule
+    MatDatepickerModule,
+    LayoutModule,
+    SharedModule
   ],
   providers: [],
   bootstrap: [AppComponent]
