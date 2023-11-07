@@ -39,21 +39,15 @@
       </mat-card>
     </div>
   </ng-template>
-
-
   <div class="row" style="margin-top:32px; padding: 16px">
     <div class="d-flex">
       <a href="https://intelligent.schwab.com/article/what-type-of-account"
         translate>pages.new-account-types.learn-more</a>
     </div>
   </div>
-
-
-
   <div class="row" style="padding: 16px">
     <div class="d-flex">
-      <a href="https://intelligent.schwab.com/article/what-type-of-account"
-        translate>pages.new-account-types.switch-brokerage</a>
+      <a href="javascript:;" (click)="switchAccountType()">{{ (accountType == AccountTypeEnum.brokerage ? 'pages.new-account-types.switch-retirement' : 'pages.new-account-types.switch-brokerage') | translate }}</a>
     </div>
   </div>
 </div>

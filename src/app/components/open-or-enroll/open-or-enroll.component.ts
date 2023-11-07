@@ -19,7 +19,11 @@ export class OpenOrEnrollComponent {
   }
   
   public next(): void {
-    this.router.navigate(['new-account-types']);
+    if (this.selectedCard == 'open') {
+      this.router.navigate(['new-account-types']);
+    } else {
+      this.router.navigate(['existing-accounts'])
+    }
   }
 
   public back(): void {

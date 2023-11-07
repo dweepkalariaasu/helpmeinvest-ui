@@ -11,6 +11,7 @@ import { RegistrationType } from 'src/app/store/enums/registration-type.enum';
 export class NewAccountTypesComponent implements OnInit {
 
   accountType = AccountType.brokerage;
+  AccountTypeEnum = AccountType;
   // accountTypeData: Array<AccountTypeData> = undefined!;
   selectedCard: RegistrationType = undefined!;
 
@@ -28,11 +29,19 @@ export class NewAccountTypesComponent implements OnInit {
 
 
   public next(): void {
-    this.router.navigate(['existing-accounts']);
+    alert('from this point onwards user will continue on account-open application, out of scope for this project');
   }
 
   public back(): void {
     this.router.navigate(['open-or-enroll']);
+  }
+
+  public switchAccountType() {
+    if (this.accountType == AccountType.brokerage) {
+      this.accountType = AccountType.retirement;
+    } else {
+      this.accountType = AccountType.brokerage;
+    }
   }
 
   public getAccountTypes(accountType: AccountType, isCommon: boolean): Array<AccountTypeData> {
@@ -143,10 +152,10 @@ export class NewAccountTypesComponent implements OnInit {
 }
 
 export interface AccountTypeData {
-  imagePath: string;
   accountType: AccountType;
   registrationType: RegistrationType;
   regTypeDescription: string;
   isCommon: boolean;
   rank: number;
+  imagePath: string;
 }
