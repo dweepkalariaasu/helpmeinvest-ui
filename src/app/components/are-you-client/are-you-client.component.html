@@ -1,3 +1,11 @@
-<p>are-you-client works!</p>
+<div class="hmi-hd4" style="margin-top: 24px;" translate>pages.are-you-client.header</div>
+
+<label class="hmi-radio-label hmi-hd6" translate>pages.are-you-client.question</label>
+<mat-radio-group class="hmi-radio-group" [(ngModel)]="isClient">
+  <mat-radio-button class="hmi-radio-button" [value]="true" translate>{{ 'global.buttons.yes' | translate }}</mat-radio-button>
+  <mat-radio-button class="hmi-radio-button" [value]="false" translate>{{ 'global.buttons.no' | translate }}</mat-radio-button>
+</mat-radio-group>
+
+<p class="mat-caption" translate>pages.are-you-client.disclaimer</p>
 
 <app-navigation-buttons (back)="back()" (next)="next()"></app-navigation-buttons>

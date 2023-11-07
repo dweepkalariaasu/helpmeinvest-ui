@@ -1,3 +1,28 @@
-<p>open-or-enroll works!</p>
+<div class="hmi-hd4" style="margin-top: 24px;" translate>pages.open-or-enroll.header</div>
+
+<mat-grid-list style="margin-bottom: 64px;" gutterSize="16" cols="2" rowHeight="1:1">
+
+  <mat-grid-tile id="tile1">
+    <mat-card class="hmi-card" [ngClass]="{ 'hmi-card-selected': (selectedCard == 'enroll') }" (click)="selectCard('enroll')">
+      <mat-card-content>
+        <img src="/assets/selected.svg" style="display: flex;" *ngIf="selectedCard == 'enroll'"/>
+        <img src="/assets/bank.svg" style="padding: 24px;"/>
+        <p class="mat-headline-6" translate>pages.open-or-enroll.enroll-title</p>
+        <p class="hmi-hd8" style="padding: 24px;" translate>pages.open-or-enroll.enroll-description</p>
+      </mat-card-content>
+    </mat-card>
+  </mat-grid-tile>
+
+  <mat-grid-tile id="tile2">
+    <mat-card class="hmi-card" [ngClass]="{ 'hmi-card-selected': (selectedCard == 'open') }" (click)="selectCard('open')">
+      <mat-card-content>
+        <img src="/assets/selected.svg" style="display: flex;" *ngIf="selectedCard == 'open'"/>
+        <img src="/assets/rocket.svg" style="padding: 24px;"/>
+        <p class="mat-headline-6" translate>pages.open-or-enroll.open-title</p>
+        <p class="hmi-hd8" style="padding: 24px;" translate>pages.open-or-enroll.open-description</p>
+      </mat-card-content>
+    </mat-card>
+  </mat-grid-tile>
+</mat-grid-list>
 
 <app-navigation-buttons (back)="back()" (next)="next()"></app-navigation-buttons>

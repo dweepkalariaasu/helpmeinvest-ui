@@ -1,0 +1,14 @@
+.hmi-card {
+    width: 400px;
+    height: 400px;
+    margin: 16px;
+}
+
+.hmi-card:active {
+    transform: translateY(4px);
+}
+
+.hmi-card-selected {
+    border-color: #446CA9;
+    border-width: 2px;
+}

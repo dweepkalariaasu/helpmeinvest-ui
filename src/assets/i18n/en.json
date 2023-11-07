@@ -2,8 +2,11 @@
   "global": {
     "buttons": {
       "continue": "Continue",
-      "back": "Back"
-    }
+      "back": "Back",
+      "yes": "Yes",
+      "no": "No"
+    },
+    "schwab-safe": "Your security is our priority"
   },
   "pages": {
     "welcome": {
@@ -56,6 +59,52 @@
       "openTraditionalIra": "Open a Traditional IRA",
       "openRothIra": "Open a Roth IRA",
       "openRolloverIra": "Open a Rollover IRA"
+    },
+    "are-you-client": {
+      "header": "Are you already a Schwab client?",
+      "question": "Do you have a Schwab login ID and password?",
+      "disclaimer": "Opening a joint account? We'll ask the other applicant separately. Each person will have their own login ID."
+    },
+    "open-or-enroll": {
+      "header": "Get started with Schwab Intelligent Portfolios® in one of two ways",
+      "enroll-title": "Enroll an existing Schwab account",
+      "enroll-description": "Invest your entire balance in the new portfolio.",
+      "open-title": "Open a new Schwab account",
+      "open-description": "Open and fund a new account instead of enrolling the entire balance of an existing account."
+    },
+    "new-account-types": {
+      "header": "What type of account would you like to open?",
+      "sub-header": "We'll help you build your portfolio for any of these accounts, Select an account type that meets your needs.",
+      "common-accounts": "Common Accounts",
+      "more-accounts": "More Accounts",
+      "retirement": "Retirement",
+      "trad-ira": "Traditional IRA",
+      "trad-ira-desc": "Make tax-deductible contributions if you qualify, and defer paying taxes until you withdraw after age 59.5.",
+      "roth-ira": "Roth IRA",
+      "roth-ira-desc": "Make after-tax contributions (if you have a qualifying earned income) and pay no taxes on qualified withdrawals after age 59.5.",
+      "roll-ira": "Rollover IRA",
+      "roll-ira-desc": "Roll over your 401(k) or other employer-sponsored retirement plan and keep the tax-deferred status.",
+      "inh-ira": "Inherited IRA",
+      "inh-ira-desc": "Transfer assets from a retirement plan you inherited. You'll have all the tax advantage of an IRA and no early withdrawal penalty.",
+      "inh-min-ira": "Inherited IRA for a Minor",
+      "inh-min-ira-desc": "Open an Inherited IRA as a custodian for a minor who is inheriting a retirement account.",
+      "sep-ira": "SEP IRA",
+      "sep-ira-desc": "Make retirement plan contributions as a sole proprietor or a small business owner for yourself and eligible employees.",
+      "simple-ira": "SIMPLE IRA",
+      "simple-ira-desc": "Contribute with salary deferrals if your small business employer offers a SIMPLE IRA plan.",
+      "ind-brk": "Individual Brokerage",
+      "ind-brk-desc": "Invest for a variety of goals and timelines with our most accessible brokerage account.",
+      "joint-brk": "Joint Brokerage",
+      "joint-brk-desc": "Share a brokerage account with one other individual.",
+      "cust-brk": "Custodial",
+      "cust-brk-desc": "Invest on behalf of a minor child until they reach the legal age. Then, the account will be turned over to the child.",
+      "lt-brk": "Living Trust (Single Trustee)",
+      "lt-brk-desc": "Work with your revocable living trust to prepare for the management and protection of your assets after your passing.",
+      "lt-jt-brk": "Living Trust (Two Trustees)",
+      "lt-jt-brk-desc": "Work with your revocable living trust with two trustees to prepare for the management and protection of your assets after your passing.",
+      "learn-more": "Learn more about accounts you can open with Schwab Intelligent Portfolios®",
+      "switch-brokerage": "Looking for a brokerage account?",
+      "switch-retirement": "Looking for a retirement account?"
     }
   }
 }

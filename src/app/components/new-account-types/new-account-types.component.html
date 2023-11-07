@@ -1,3 +1,60 @@
-<p>new-account-types works!</p>
+<div class="hmi-hd4" style="margin-top: 24px;" translate>pages.new-account-types.header</div>
+<div class="container">
+  <mat-tab-group>
+    <mat-tab label="{{'pages.new-account-types.common-accounts' | translate}}">
+      <div *ngFor="let accountData of getAccountTypes(accountType, true)">
+        <ng-template *ngTemplateOutlet="card; context: { $implicit: accountData }"></ng-template>
+      </div>
+    </mat-tab>
+    <mat-tab label="{{'pages.new-account-types.more-accounts' | translate}}">
+      <div *ngFor="let accountData of getAccountTypes(accountType, false)">
+        <ng-template *ngTemplateOutlet="card; context: { $implicit: accountData }"></ng-template>
+      </div>
+    </mat-tab>
+  </mat-tab-group>
 
+  <ng-template #card let-accountData>
+    <div *ngIf="accountData !== undefined">
+      <mat-card class="hmi-card" [ngClass]="{ 'hmi-card-selected': (selectedCard == accountData.registrationType) }"
+        (click)="selectCard(accountData.registrationType)">
+        <mat-card-content>
+          <div class="container">
+            <div class="row">
+
+              <div class="col-1 no-padding">
+                <img src="/assets/selected.svg" style="display: flex;"
+                  *ngIf="selectedCard == accountData.registrationType" />
+              </div>
+              <div class="col-3 no-padding">
+                <img [src]="accountData.imagePath" style="height: 130px; padding: 24px;" />
+              </div>
+              <div class="col-8">
+                <div class="mat-headline-6 no-padding">{{accountData.registrationType}}</div>
+                <div class="mat-caption" style="padding-bottom: 24px;" translate>{{accountData.accountType}}</div>
+                <div class="hmi-hd8" translate>{{accountData.regTypeDescription}}</div>
+              </div>
+            </div>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </ng-template>
+
+
+  <div class="row" style="margin-top:32px; padding: 16px">
+    <div class="d-flex">
+      <a href="https://intelligent.schwab.com/article/what-type-of-account"
+        translate>pages.new-account-types.learn-more</a>
+    </div>
+  </div>
+
+
+
+  <div class="row" style="padding: 16px">
+    <div class="d-flex">
+      <a href="https://intelligent.schwab.com/article/what-type-of-account"
+        translate>pages.new-account-types.switch-brokerage</a>
+    </div>
+  </div>
+</div>
 <app-navigation-buttons (back)="back()" (next)="next()"></app-navigation-buttons>

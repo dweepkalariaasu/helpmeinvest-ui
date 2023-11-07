@@ -8,8 +8,14 @@ import { Router } from '@angular/router';
 })
 export class OpenOrEnrollComponent {
 
+  selectedCard = '';
+
   constructor(private router: Router) {
 
+  }
+
+  selectCard(card: string) {
+    this.selectedCard = card;
   }
   
   public next(): void {

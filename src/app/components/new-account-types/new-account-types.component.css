@@ -1,0 +1,17 @@
+.hmi-card {
+    max-width: 720px;
+    max-height: 250px;
+    margin: 16px;
+    border-color: #fff;
+    border-width: 2px;
+}
+
+.hmi-card-selected {
+    border-color: #446CA9;
+    border-width: 2px;
+}
+
+.no-padding {
+    padding: 0 !important;
+    margin: 0 !important;
+ }

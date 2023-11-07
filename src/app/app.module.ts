@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { FormsModule } from '@angular/forms';
 
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatNativeDateModule } from '@angular/material/core';
@@ -11,6 +12,8 @@ import { MatDividerModule } from '@angular/material/divider';
 import { MatInputModule } from '@angular/material/input';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatRadioModule } from '@angular/material/radio';
+import { MatTabsModule } from '@angular/material/tabs';
 
 import { StoreModule } from '@ngrx/store';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
@@ -33,6 +36,7 @@ import { OpenOrEnrollComponent } from './components/open-or-enroll/open-or-enrol
 import { NewAccountTypesComponent } from './components/new-account-types/new-account-types.component';
 import { ExistingAccountsComponent } from './components/existing-accounts/existing-accounts.component';
 import { LoginComponent } from './components/login/login.component';
+
 
 export function TranslateLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -59,6 +63,7 @@ export function TranslateLoaderFactory(http: HttpClient) {
     AppRoutingModule,
     NoopAnimationsModule,
     HttpClientModule,
+    FormsModule,
     StoreModule.forRoot(stateReducerMappings),
     TranslateModule.forRoot(
       {
@@ -77,6 +82,8 @@ export function TranslateLoaderFactory(http: HttpClient) {
     MatInputModule,
     MatNativeDateModule,
     MatDatepickerModule,
+    MatRadioModule,
+    MatTabsModule,
     LayoutModule,
     SharedModule
   ],

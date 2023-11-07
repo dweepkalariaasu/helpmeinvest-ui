@@ -8,8 +8,10 @@ import { Router } from '@angular/router';
 })
 export class AreYouClientComponent {
 
-  constructor(private router: Router) {
+  public isClient: boolean;
 
+  constructor(private router: Router) {
+    this.isClient = false;
   }
   
   public next(): void {
