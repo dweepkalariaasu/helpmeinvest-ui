@@ -14,6 +14,8 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatTabsModule } from '@angular/material/tabs';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { MatIconModule } from '@angular/material/icon';
 
 import { StoreModule } from '@ngrx/store';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
@@ -36,7 +38,6 @@ import { OpenOrEnrollComponent } from './components/open-or-enroll/open-or-enrol
 import { NewAccountTypesComponent } from './components/new-account-types/new-account-types.component';
 import { ExistingAccountsComponent } from './components/existing-accounts/existing-accounts.component';
 import { LoginComponent } from './components/login/login.component';
-
 
 export function TranslateLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -84,6 +85,8 @@ export function TranslateLoaderFactory(http: HttpClient) {
     MatDatepickerModule,
     MatRadioModule,
     MatTabsModule,
+    MatExpansionModule,
+    MatIconModule,
     LayoutModule,
     SharedModule
   ],

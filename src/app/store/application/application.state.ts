@@ -1,9 +1,18 @@
-import { AccountType } from "../enums/account-type.enum";
-import { RegistrationType } from "../enums/registration-type.enum";
+import { TaxFilingStatus } from "src/app/enums/tax-filing-status.enum";
+import { AccountType } from "../../enums/account-type.enum";
+import { CustomerType } from "../../enums/customer-type.enum";
+import { RegistrationType } from "../../enums/registration-type.enum";
 
 export interface ApplicationState {
-    appId: string | undefined;
-    promoCodes: string[];
+    referenceId: string | undefined;
     accountType: AccountType | undefined;
     registrationType: RegistrationType | undefined;
+    customerInfo: CustomerInfo | undefined;
+}
+
+export interface CustomerInfo {
+    CustomerType: CustomerType;
+    DateOfBirth: Date;
+    AdjustedGrossIncome: number;
+    TaxFilingStatus: TaxFilingStatus;
 }

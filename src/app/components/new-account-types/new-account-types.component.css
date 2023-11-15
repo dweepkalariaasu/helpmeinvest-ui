@@ -4,6 +4,7 @@
     margin: 16px;
     border-color: #fff;
     border-width: 2px;
+    text-align: left;
 }
 
 .hmi-card-selected {

@@ -1,0 +1,71 @@
+.hmi-card {
+    max-width: 720px;
+    min-height: 200px;
+    margin: 16px;
+    border-color: #fff;
+    border-width: 2px;
+    text-align: left;
+}
+
+.hmi-card-selected {
+    border-color: #446CA9;
+    border-width: 2px;
+}
+
+.hmi-card-disabled {
+    border-color: #dddddd;
+    border-width: 1px;
+    box-shadow: none;
+}
+
+.disclaimer {
+    width: 720px;
+    margin: 48px 0 24px 16px;
+    text-align: justify;
+}
+
+.info-message {
+    background-color: #e5f8ff;
+    border-style: solid;
+    border-color: #006e99;
+    border-width: 1px;
+    border-radius: 4px;
+    padding: 5px;
+    margin: 0;
+}
+
+.info-icon {
+    color: #006e99;
+}
+
+.warning-message {
+    background-color: #fff7e5;
+    border-style: solid;
+    border-color: #b37b00;
+    border-width: 1px;
+    border-radius: 4px;
+    padding: 5px;
+    margin: 0;
+}
+
+.warning-icon {
+    color: #b37b00;
+}
+
+.error-message {
+    background-color: #fee7e8;
+    border-style: solid;
+    border-color: #c10b14;
+    border-width: 1px;
+    border-radius: 4px;
+    padding: 5px;
+    margin: 0;
+}
+
+.error-icon {
+    color: #c10b14;
+}
+
+ mat-expansion-panel:not([class*=mat-elevation-z]) {
+    box-shadow: none !important;
+}

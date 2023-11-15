@@ -1,3 +1,77 @@
-<p>existing-accounts works!</p>
+<div class="hmi-hd4" style="margin-top: 24px;" translate>pages.new-account-types.header</div>
+<div class="container">
+  <mat-accordion multi>
+    <mat-expansion-panel expanded="true">
+      <mat-expansion-panel-header>
+        <mat-panel-title class="mat-headline-6">
+          {{'pages.existing-accounts.eligible-accounts' | translate}}
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <div *ngFor="let accountData of this.data">
+        <div *ngIf="accountData.isEligible">
+          <ng-template *ngTemplateOutlet="card; context: { $implicit: accountData }"></ng-template>
+        </div>
+      </div>
+      <div class="hmi-caption disclaimer" translate>pages.existing-accounts.disclaimer</div>
+    </mat-expansion-panel>
+    <mat-expansion-panel expanded="false">
+      <mat-expansion-panel-header>
+        <mat-panel-title class="mat-headline-6">
+          {{'pages.existing-accounts.ineligible-accounts' | translate}}
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <div *ngFor="let accountData of this.data">
+        <div *ngIf="!accountData.isEligible">
+          <ng-template *ngTemplateOutlet="card; context: { $implicit: accountData }"></ng-template>
+        </div>
+      </div>
+    </mat-expansion-panel>
+  </mat-accordion>
+
+  <ng-template #card let-accountData>
+    <div *ngIf="accountData !== undefined">
+      <mat-card class="hmi-card" [ngClass]="{ 
+        'hmi-card-selected': (selectedCard == accountData.id && accountData.isEligible),
+        'hmi-card-disabled': !accountData.isEligible}" (click)="selectCard(accountData.id)">
+        <mat-card-content>
+          <div class="row">
+            <div class="col-1">
+              <img src="/assets/selected.svg" style="display: flex;"
+                *ngIf="selectedCard == accountData.id && accountData.isEligible" />
+            </div>
+            <div class="col-3">
+              <img [src]="accountData.imagePath" style="height: 100px; padding: 24px;" />
+            </div>
+            <div class="col-8">
+              <div class="mat-headline-6 no-padding" translate>{{accountData.registrationType}}</div>
+              <div class="mat-caption" style="padding-bottom: 24px;" translate>({{accountData.accountId}}) {{accountData.accountType}}</div>
+              <div class="hmi-hd8" translate>Balance: $ {{accountData.balance}}</div>
+            </div>
+          </div>
+          <div class="row info-message" *ngIf="accountData.isEligible && accountData.unrealizedGainLoss != 0">
+            <div class="col-1">
+              <mat-icon class="info-icon" aria-hidden="false" fontIcon="information"></mat-icon>
+            </div>
+            <div class="col-11">
+              <span translate>pages.existing-accounts.unrealized-gain-loss-1</span>
+              {{accountData.unrealizedGainLoss}}
+              <span translate>pages.existing-accounts.unrealized-gain-loss-2</span>
+            </div>
+          </div>
+          <div class="row warning-message" *ngIf="!accountData.isEligible && accountData.inEligibleReason">
+            <div class="col-1">
+              <mat-icon class="warning-icon" aria-hidden="false" fontIcon="information"></mat-icon>
+            </div>
+            <div class="col-11">
+              <span translate>pages.existing-accounts.ineligible-reason</span> <br/>
+               - {{accountData.inEligibleReason}}
+            </div>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </ng-template>
+
+</div>
 
 <app-navigation-buttons (back)="back()" (next)="next()"></app-navigation-buttons>
