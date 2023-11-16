@@ -1,4 +1,5 @@
-<div class="hmi-hd4" style="margin-top: 24px;" translate>pages.new-account-types.header</div>
+<div class="hmi-hd4" style="margin-top: 24px;" translate>pages.existing-accounts.header</div>
+<div class="mat-subtitle-1" style="margin: 16px 0 64px 0;" translate>pages.existing-accounts.sub-header</div>
 <div class="container">
   <mat-accordion multi>
     <mat-expansion-panel expanded="true">
@@ -43,7 +44,7 @@
               <img [src]="accountData.imagePath" style="height: 100px; padding: 24px;" />
             </div>
             <div class="col-8">
-              <div class="mat-headline-6 no-padding" translate>{{accountData.registrationType}}</div>
+              <div class="mat-headline-6 no-padding" translate>{{accountData.regTypeTitle}}</div>
               <div class="mat-caption" style="padding-bottom: 24px;" translate>({{accountData.accountId}}) {{accountData.accountType}}</div>
               <div class="hmi-hd8" translate>Balance: $ {{accountData.balance}}</div>
             </div>

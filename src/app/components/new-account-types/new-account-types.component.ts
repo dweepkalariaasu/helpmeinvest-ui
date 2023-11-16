@@ -3,8 +3,7 @@ import { Router } from '@angular/router';
 import { AccountType } from '../../enums/account-type.enum';
 import { RegistrationType } from '../../enums/registration-type.enum';
 import { NewAccountType } from '../../models/NewAccountType';
-import { AccountService } from 'src/app/services/account.service';
-import { Observable } from 'rxjs';
+import { AccountService } from '../../services/account.service';
 
 @Component({
   selector: 'app-new-account-types',
@@ -13,12 +12,12 @@ import { Observable } from 'rxjs';
 })
 export class NewAccountTypesComponent implements OnInit {
 
-  index = 0;
-  accountType = AccountType.Brokerage;
+  accountType = AccountType.Retirement;
+  additionalAccountType = AccountType.Brokerage;
   AccountTypeEnum = AccountType;
   // accountTypeData: Array<AccountTypeData> = undefined!;
   selectedCard: RegistrationType = undefined!;
-  data: any;
+  data: Array<NewAccountType> | undefined;
 
   constructor(private router: Router,
     private accountService: AccountService) {
@@ -42,12 +41,16 @@ export class NewAccountTypesComponent implements OnInit {
   }
 
   public switchAccountType() {
-    (this.index === 0) ? (this.index = 1) : (this.index = 0);
+    const buffer = this.accountType;
+    this.accountType = this.additionalAccountType;
+    this.additionalAccountType = buffer;
   }
 
-  public getAccountTypes(): any {
-    this.accountService.getNewAccounts().subscribe(a => {
-      this.data = Object.values(a);
+  public getAccountTypes(): void {
+    this.accountService.getNewAccountTypes().subscribe(a => {
+      this.data = a.accountTypes;
+      this.accountType = a.selectedAccountType;
+      this.additionalAccountType = a.additionalAccountType;
     });
   }
 
