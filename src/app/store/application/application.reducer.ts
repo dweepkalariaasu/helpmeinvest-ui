@@ -6,6 +6,7 @@ export const initialState: ApplicationState = {
   referenceId: undefined,
   accountType: undefined,
   registrationType: undefined,
+  operationType: undefined,
   customerInfo: undefined
 };
 
@@ -24,16 +25,72 @@ export const _applicationReducer = createReducer(initialState,
     }
     return newState;
   }),
+  on(actions.saveOperationType, (state: ApplicationState, payload) => {
+    const newState: ApplicationState = {
+      ...state,
+      operationType: payload.operationType
+    }
+    return newState;
+  }),
+  on(actions.saveReferenceId, (state: ApplicationState, payload) => {
+    const newState: ApplicationState = {
+      ...state,
+      referenceId: payload.referenceId
+    }
+    return newState;
+  }),
+  on(actions.saveCustomerId, (state: ApplicationState, payload) => {
+    const newState: ApplicationState = {
+      ...state,
+      customerInfo: {
+        ...state.customerInfo!,
+        CustomerId: payload.customerId
+      }
+    }
+    return newState;
+  }),
+  on(actions.saveCustomerType, (state: ApplicationState, payload) => {
+    const newState: ApplicationState = {
+      ...state,
+      customerInfo: {
+        ...state.customerInfo!,
+        CustomerType: payload.customerType
+      }
+    }
+    return newState;
+  }),
+  on(actions.saveDateOfBirth, (state: ApplicationState, payload) => {
+    const newState: ApplicationState = {
+      ...state,
+      customerInfo: {
+        ...state.customerInfo!,
+        DateOfBirth: payload.dateOfBirth
+      }
+    }
+    return newState;
+  }),
+  on(actions.saveGrossIncome, (state: ApplicationState, payload) => {
+    const newState: ApplicationState = {
+      ...state,
+      customerInfo: {
+        ...state.customerInfo!,
+        AdjustedGrossIncome: payload.grossIncome
+      }
+    }
+    return newState;
+  }),
+  on(actions.saveTaxStatus, (state: ApplicationState, payload) => {
+    const newState: ApplicationState = {
+      ...state,
+      customerInfo: {
+        ...state.customerInfo!,
+        TaxFilingStatus: payload.taxStatus
+      }
+    }
+    return newState;
+  }),
 );
 
 export function ApplicationReducer(state: ApplicationState, action: Action): ApplicationState {
   return _applicationReducer(state, action);
 }
-
-// function guid(): string {
-//   return "10000000-1000-4000-8000-100000000000".replace(/[018]/g, 
-//   c => {
-//     const n = parseInt(c);
-//     return (n ^ crypto.getRandomValues(new Uint8Array(1))[0] & 15 >> n / 4).toString(16);
-//   });
-// }

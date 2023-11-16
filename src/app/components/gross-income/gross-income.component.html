@@ -5,11 +5,13 @@
 <div class="hmi-hd6" style="margin: 32px 0 32px 0;" translate>pages.gross-income.question</div>
 <div class="mat-subtitle-1" style="margin: 16px 0 16px 0;" translate>pages.gross-income.hint</div>
 
-<mat-form-field appearance="outline" style="margin: 16px 0 16px 0;">
-  <mat-label>{{ 'pages.gross-income.adjustedGrossIncome' | translate }}</mat-label>
-  <span matPrefix>&nbsp; $ &nbsp;</span>
-  <input type="number" matInput [value]="">
-  <mat-error>This field is required</mat-error>
-</mat-form-field>
+<form [formGroup]="formGroup">
+  <mat-form-field appearance="outline" style="margin: 16px 0 16px 0;">
+    <mat-label>{{ 'pages.gross-income.adjustedGrossIncome' | translate }}</mat-label>
+    <span matPrefix>&nbsp; $ &nbsp;</span>
+    <input type="number" matInput formControlName="agi">
+    <mat-error>This field is required</mat-error>
+  </mat-form-field>
 
-<app-navigation-buttons (back)="back()" (next)="next()"></app-navigation-buttons>
+  <app-navigation-buttons (back)="back()" (next)="next()"></app-navigation-buttons>
+</form>

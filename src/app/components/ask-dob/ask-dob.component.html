@@ -5,13 +5,15 @@
 <div class="hmi-hd6" style="margin: 32px 0 32px 0;" translate>pages.ask-dob.question</div>
 <div class="mat-subtitle-1" style="margin: 16px 0 16px 0;" translate>pages.ask-dob.hint</div>
 
-<mat-form-field appearance="outline" style="margin: 16px 0 16px 0;">
-  <mat-label>{{ 'pages.ask-dob.dateOfBirth' | translate }}</mat-label>
-  <input matInput [matDatepicker]="picker">
-  <mat-hint>MM/DD/YYYY</mat-hint>
-  <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
-  <mat-datepicker #picker></mat-datepicker>
-  <mat-error>This field is required</mat-error>
-</mat-form-field>
+<form [formGroup]="formGroup">
+  <mat-form-field appearance="outline" style="margin: 16px 0 16px 0;">
+    <mat-label>{{ 'pages.ask-dob.dateOfBirth' | translate }}</mat-label>
+    <input matInput [matDatepicker]="picker" formControlName="dob">
+    <mat-hint>MM/DD/YYYY</mat-hint>
+    <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+    <mat-error>This field is required</mat-error>
+  </mat-form-field>
 
-<app-navigation-buttons (back)="back()" (next)="next()"></app-navigation-buttons>
+  <app-navigation-buttons (back)="back()" (next)="next()"></app-navigation-buttons>
+</form>

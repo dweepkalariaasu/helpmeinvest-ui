@@ -8,3 +8,8 @@ export const referenceIdSelector = createSelector(
   applicationSelector,
   (state: ApplicationState) => state.referenceId
 );
+
+export const custInfoSelector = createSelector(
+  applicationSelector,
+  (state: ApplicationState) => state.customerInfo
+);

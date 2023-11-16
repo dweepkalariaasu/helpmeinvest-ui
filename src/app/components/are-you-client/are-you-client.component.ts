@@ -1,5 +1,9 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { Store } from '@ngrx/store';
+import { CustomerType } from 'src/app/enums/customer-type.enum';
+import { saveCustomerType } from 'src/app/store/application/application.actions';
+import { MainState } from 'src/app/store/main.state';
 
 @Component({
   selector: 'app-are-you-client',
@@ -8,14 +12,20 @@ import { Router } from '@angular/router';
 })
 export class AreYouClientComponent {
 
-  public isClient: boolean;
+  public isClient: boolean | undefined;
 
-  constructor(private router: Router) {
-    this.isClient = false;
+  constructor(private router: Router,
+    private store: Store<MainState>) {
+    // this.isClient = false;
   }
   
   public next(): void {
-    this.router.navigate(['open-or-enroll']);
+    this.store.dispatch(saveCustomerType({customerType: this.isClient ? CustomerType.Client : CustomerType.Prospect}));
+    if (this.isClient) {
+      this.router.navigate(['login']);
+    } else {
+      this.router.navigate(['new-account-types']);
+    }
   }
 
   public back(): void {

@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatNativeDateModule } from '@angular/material/core';
@@ -64,6 +64,7 @@ export function TranslateLoaderFactory(http: HttpClient) {
     AppRoutingModule,
     NoopAnimationsModule,
     HttpClientModule,
+    ReactiveFormsModule,
     FormsModule,
     StoreModule.forRoot(stateReducerMappings),
     TranslateModule.forRoot(

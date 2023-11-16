@@ -6,13 +6,13 @@
 
 <div class="mat-subtitle-1" style="margin: 16px 0 16px 0;" translate>pages.tax-filing.hint</div>
 
-<mat-card class="nav-card" (click)="next()">
+<mat-card class="nav-card" (click)="next(taxStatus.Single)">
   <mat-card-content class="hmi-hd8" translate>pages.tax-filing.option1</mat-card-content>
 </mat-card>
-<mat-card class="nav-card" (click)="next()">
+<mat-card class="nav-card" (click)="next(taxStatus.MarriedFilingJointly)">
   <mat-card-content class="hmi-hd8" translate>pages.tax-filing.option2</mat-card-content>
 </mat-card>
-<mat-card class="nav-card" (click)="next()">
+<mat-card class="nav-card" (click)="next(taxStatus.MarriedFilingSeparately)">
   <mat-card-content class="hmi-hd8" translate>pages.tax-filing.option3</mat-card-content>
 </mat-card>
 

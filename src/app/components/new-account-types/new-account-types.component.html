@@ -4,14 +4,14 @@
 <div class="container">
   <mat-tab-group>
     <mat-tab label="{{'pages.new-account-types.common-accounts' | translate}}">
-      <div *ngFor="let accountData of this.data">
+      <div *ngFor="let accountData of data">
         <div *ngIf="accountData.isCommon && accountData.accountType == accountType">
           <ng-template *ngTemplateOutlet="card; context: { $implicit: accountData }"></ng-template>
         </div>
       </div>
     </mat-tab>
     <mat-tab label="{{'pages.new-account-types.more-accounts' | translate}}">
-      <div *ngFor="let accountData of this.data">
+      <div *ngFor="let accountData of data">
         <div *ngIf="!accountData.isCommon && accountData.accountType == accountType">
           <ng-template *ngTemplateOutlet="card; context: { $implicit: accountData }"></ng-template>
         </div>

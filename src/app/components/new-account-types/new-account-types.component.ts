@@ -1,9 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Store } from '@ngrx/store';
 import { AccountType } from '../../enums/account-type.enum';
 import { RegistrationType } from '../../enums/registration-type.enum';
 import { NewAccountType } from '../../models/NewAccountType';
 import { AccountService } from '../../services/account.service';
+import { MainState } from '../../store/main.state';
+import { custInfoSelector, referenceIdSelector } from 'src/app/store/application/application.selectors';
+import { CustomerType } from 'src/app/enums/customer-type.enum';
+import { saveRegistrationType } from 'src/app/store/application/application.actions';
 
 @Component({
   selector: 'app-new-account-types',
@@ -15,12 +20,16 @@ export class NewAccountTypesComponent implements OnInit {
   accountType = AccountType.Retirement;
   additionalAccountType = AccountType.Brokerage;
   AccountTypeEnum = AccountType;
-  // accountTypeData: Array<AccountTypeData> = undefined!;
   selectedCard: RegistrationType = undefined!;
   data: Array<NewAccountType> | undefined;
+  referenceId = '654c536d587472b31db8c736';
+  customerType = CustomerType.Prospect;
 
   constructor(private router: Router,
-    private accountService: AccountService) {
+    private accountService: AccountService,
+    private store: Store<MainState>) {
+      this.store.select(referenceIdSelector).subscribe(a => this.referenceId = a!);
+      this.store.select(custInfoSelector).subscribe(a => this.customerType = a?.CustomerType!);
   }
 
   ngOnInit(): void {
@@ -31,13 +40,17 @@ export class NewAccountTypesComponent implements OnInit {
     this.selectedCard = regType;
   }
 
-
   public next(): void {
-    alert('from this point onwards user will continue on account-open application, out of scope for this project');
+    this.store.dispatch(saveRegistrationType({registrationType: this.selectedCard}));
+    alert('Selected AccountType is ' + this.selectCard + '. From this point onwards user will continue on account-open application, out of scope for this project');
   }
 
   public back(): void {
-    this.router.navigate(['open-or-enroll']);
+    if (this.customerType == CustomerType.Client) {
+      this.router.navigate(['open-or-enroll']);
+    } else {
+      this.router.navigate(['are-you-client']);
+    }
   }
 
   public switchAccountType() {
@@ -47,13 +60,11 @@ export class NewAccountTypesComponent implements OnInit {
   }
 
   public getAccountTypes(): void {
-    this.accountService.getNewAccountTypes().subscribe(a => {
+    this.accountService.getNewAccountTypes(this.referenceId).subscribe(a => {
       this.data = a.accountTypes;
       this.accountType = a.selectedAccountType;
       this.additionalAccountType = a.additionalAccountType;
     });
   }
-
-
 }
 

@@ -1,5 +1,11 @@
 import { Component } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Store } from '@ngrx/store';
+import { MainState } from '../../store/main.state';
+import { custInfoSelector } from '../../store/application/application.selectors';
+import { saveGrossIncome } from 'src/app/store/application/application.actions';
+
 
 @Component({
   selector: 'app-gross-income',
@@ -8,13 +14,24 @@ import { Router } from '@angular/router';
 })
 export class GrossIncomeComponent {
 
-  constructor(private router: Router) {
+  formGroup = new FormGroup({
+    agi: new FormControl(),
+  });
 
+  constructor(private router: Router,
+    private store: Store<MainState>) {
+    this.store.select(custInfoSelector).subscribe(a => {
+      if (a) {
+        this.formGroup?.controls.agi.setValue(a.DateOfBirth);
+      }
+    });
   }
   
   public next(): void {
-    // TODO: Get IRA type based on some logic
-    this.router.navigate(['account-choices', { type: 'traditional' }]);
+    if (this.formGroup.valid) {
+      this.store.dispatch(saveGrossIncome({grossIncome: this.formGroup.controls.agi.getRawValue()!}));
+      this.router.navigate(['account-choices', { type: 'traditional' }]);
+    }
   }
 
   public back(): void {

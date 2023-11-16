@@ -1,13 +1,10 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Store } from '@ngrx/store';
 import { Observable, of } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { NewAccountType } from '../models/NewAccountType';
 import { AccountType } from '../enums/account-type.enum';
 import { RegistrationType } from '../enums/registration-type.enum';
-import { MainState } from '../store/main.state';
-import { referenceIdSelector } from '../store/application/application.selectors';
 import { environment } from '../../environments/environment';
 import { ExistingAccount } from '../models/ExistingAccount';
 import { NewAccountTypesResponse } from '../models/NewAccountTypesResponse';
@@ -17,16 +14,11 @@ import { NewAccountTypesResponse } from '../models/NewAccountTypesResponse';
 })
 export class AccountService {
 
-  referenceId: string | undefined = '654c536d587472b31db8c736';
+  constructor(private httpClient: HttpClient) { }
 
-  constructor(store: Store<MainState>,
-    private httpClient: HttpClient) {
-    // store.select(referenceIdSelector).subscribe(a => this.referenceId = a);
-  }
-
-  public getNewAccountTypes(): Observable<NewAccountTypesResponse> {
-    if (this.referenceId) {
-      const url = environment.hmiApiUrl + 'account/new?referenceId=' + this.referenceId;
+  public getNewAccountTypes(referenceId: string): Observable<NewAccountTypesResponse> {
+    if (referenceId) {
+      const url = environment.hmiApiUrl + 'account/new?referenceId=' + referenceId;
       return this.httpClient.get(url).pipe(map(a => {
         var b = a as NewAccountTypesResponse;
         b?.accountTypes.map(c => {
@@ -268,7 +260,7 @@ export class AccountService {
       case RegistrationType.sep:
         return 'pages.new-account-types.sep-ira';
       case RegistrationType.simple:
-        return 'pages.new-account-types.simpler-ira';
+        return 'pages.new-account-types.simple-ira';
       case RegistrationType.individual:
         return 'pages.new-account-types.ind-brk';
       case RegistrationType.joint:
