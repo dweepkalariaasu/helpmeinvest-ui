@@ -1,11 +1,10 @@
 import { Component } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { MainState } from '../../store/main.state';
 import { custInfoSelector } from '../../store/application/application.selectors';
 import { saveGrossIncome } from 'src/app/store/application/application.actions';
-
 
 @Component({
   selector: 'app-gross-income',
@@ -15,14 +14,14 @@ import { saveGrossIncome } from 'src/app/store/application/application.actions';
 export class GrossIncomeComponent {
 
   formGroup = new FormGroup({
-    agi: new FormControl(),
+    agi: new FormControl(0, {validators: Validators.required}),
   });
 
   constructor(private router: Router,
     private store: Store<MainState>) {
     this.store.select(custInfoSelector).subscribe(a => {
       if (a) {
-        this.formGroup?.controls.agi.setValue(a.DateOfBirth);
+        this.formGroup?.controls.agi.setValue(a.AdjustedGrossIncome);
       }
     });
   }
@@ -30,7 +29,7 @@ export class GrossIncomeComponent {
   public next(): void {
     if (this.formGroup.valid) {
       this.store.dispatch(saveGrossIncome({grossIncome: this.formGroup.controls.agi.getRawValue()!}));
-      this.router.navigate(['account-choices', { type: 'traditional' }]);
+      this.router.navigate(['account-choices'], { queryParams: { type: 'traditional' }});
     }
   }
 

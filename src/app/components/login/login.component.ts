@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
 @Component({
@@ -8,10 +9,19 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent {
 
+  formGroup = new FormGroup({
+    loginId: new FormControl('', {validators: Validators.required}),
+    password: new FormControl('', {validators: Validators.required})
+  });
+
   constructor(private router: Router) { }
 
   public next(): void {
-    this.router.navigate(['open-or-enroll']);
+    if (this.formGroup.valid) {
+      console.log(this.formGroup.controls.loginId.getRawValue());
+      console.log(this.formGroup.controls.password.getRawValue());
+      this.router.navigate(['open-or-enroll']);
+    }
   }
 
   public back(): void {

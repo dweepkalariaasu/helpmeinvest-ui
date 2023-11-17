@@ -1,10 +1,23 @@
 <mat-divider style="margin-top: 32px;"></mat-divider>
-<div style="float: right; margin-bottom: 64px;">
-    <button style="margin: 16px 8px 16px 0;" mat-raised-button (click)="back.emit()">
-        {{'global.buttons.back' | translate}}
-    </button>
-    <button style="margin: 16px 0 16px 8px; background-color: green;" mat-raised-button color="primary"
-        (click)="next.emit()" *ngIf="buttonType != buttonTypeEnum.Back">
-        {{'global.buttons.continue' | translate}}
-    </button>
+<div style="float: right; padding-bottom: 16px;">
+  <button style="margin: 16px 8px 16px 0;" mat-raised-button (click)="back.emit()">
+    {{'global.buttons.back' | translate}}
+  </button>
+  <button style="margin: 16px 0 16px 8px; background-color: green;" mat-raised-button color="primary"
+    (click)="next.emit()" *ngIf="!nextText && buttonType != buttonTypeEnum.Back">
+    {{'global.buttons.continue' | translate}}
+  </button>
+  <button style="margin: 16px 0 16px 8px; background-color: green;" mat-raised-button color="primary"
+    (click)="next.emit()" *ngIf="nextText && buttonType != buttonTypeEnum.Back">
+    {{nextText}}
+  </button>
+</div>
+<div class="mat-caption" style="float: right; clear: both; margin-bottom: 64px;" *ngIf="displaySafe">
+  <div style="float: right; padding-top: 8px;">
+    &nbsp;
+    {{ 'global.schwab-safe' | translate }}
+  </div>
+  <div style="float: right">
+    <img src="assets/schwab-safe-icon.svg" width="32px" />
+  </div>
 </div>

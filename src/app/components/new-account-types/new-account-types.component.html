@@ -1,24 +1,24 @@
 <div class="hmi-hd4" style="margin-top: 24px;" translate>pages.new-account-types.header</div>
 <div class="mat-subtitle-1" style="margin: 16px 0 64px 0;" translate>pages.new-account-types.sub-header</div>
 
-<div class="container">
-  <mat-tab-group>
-    <mat-tab label="{{'pages.new-account-types.common-accounts' | translate}}">
-      <div *ngFor="let accountData of data">
-        <div *ngIf="accountData.isCommon && accountData.accountType == accountType">
-          <ng-template *ngTemplateOutlet="card; context: { $implicit: accountData }"></ng-template>
-        </div>
+<mat-tab-group>
+  <mat-tab label="{{'pages.new-account-types.common-accounts' | translate}}">
+    <div *ngFor="let accountData of data" style="margin-top: 32px;">
+      <div *ngIf="accountData.isCommon && accountData.accountType == accountType">
+        <ng-template *ngTemplateOutlet="card; context: { $implicit: accountData }"></ng-template>
       </div>
-    </mat-tab>
-    <mat-tab label="{{'pages.new-account-types.more-accounts' | translate}}">
-      <div *ngFor="let accountData of data">
-        <div *ngIf="!accountData.isCommon && accountData.accountType == accountType">
-          <ng-template *ngTemplateOutlet="card; context: { $implicit: accountData }"></ng-template>
-        </div>
+    </div>
+  </mat-tab>
+  <mat-tab label="{{'pages.new-account-types.more-accounts' | translate}}">
+    <div *ngFor="let accountData of data" style="margin-top: 32px;">
+      <div *ngIf="!accountData.isCommon && accountData.accountType == accountType">
+        <ng-template *ngTemplateOutlet="card; context: { $implicit: accountData }"></ng-template>
       </div>
-    </mat-tab>
-  </mat-tab-group>
+    </div>
+  </mat-tab>
+</mat-tab-group>
 
+<div class="container">
   <ng-template #card let-accountData>
     <div *ngIf="accountData !== undefined">
       <mat-card class="hmi-card" [ngClass]="{ 'hmi-card-selected': (selectedCard == accountData.registrationType) }"

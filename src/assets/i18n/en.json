@@ -6,7 +6,7 @@
       "yes": "Yes",
       "no": "No"
     },
-    "schwab-safe": "Your security is our priority"
+    "schwab-safe": "Your security is our priority."
   },
   "pages": {
     "welcome": {
@@ -115,6 +115,15 @@
       "ineligible-reason": "This account is not currently eligible for Schwab Intelligent Portfolios because it has:",
       "unrealized-gain-loss-1": "This account has an estimated* unrealized",
       "unrealized-gain-loss-2": "in gains/losses, which could include both long and short term gains and/or losses."
+    },
+    "login": {
+      "header": "Log in to Schwab",
+      "loginId": "Login ID",
+      "password": "Password",
+      "remember": "Remember Login ID",
+      "login": "Log In",
+      "forgot": "Forgot ID or Password",
+      "new": "New user?"
     }
   }
 }

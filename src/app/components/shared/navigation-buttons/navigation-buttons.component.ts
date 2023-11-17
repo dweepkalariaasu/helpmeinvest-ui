@@ -10,6 +10,8 @@ export class NavigationButtonsComponent {
   buttonTypeEnum = ButtonType;
 
   @Input() buttonType = ButtonType.ContinueBack;
+  @Input() nextText: string = '';
+  @Input() displaySafe: boolean = true;
 
   @Output() public next = new EventEmitter();
   @Output() public back = new EventEmitter();

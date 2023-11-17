@@ -1,4 +1,4 @@
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
@@ -14,11 +14,12 @@ import { custInfoSelector } from '../../store/application/application.selectors'
 export class AskDobComponent {
 
   formGroup = new FormGroup({
-    dob: new FormControl(),
+    dob: new FormControl<Date | undefined>(undefined, {validators: Validators.required}),
   });
 
   constructor(private router: Router,
     private store: Store<MainState>) {
+      this.formGroup.controls.dob.reset();
       this.store.select(custInfoSelector).subscribe(a => {
         if (a) {
           this.formGroup?.controls.dob.setValue(a.DateOfBirth);

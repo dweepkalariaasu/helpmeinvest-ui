@@ -229,7 +229,7 @@ export class AccountService {
       case RegistrationType.minor:
       case RegistrationType.sep:
       case RegistrationType.simple:
-        return 'assets/ira.svg'
+        return 'assets/retirement.svg'
       case RegistrationType.individual:
       case RegistrationType.joint:
         return '/assets/brokerage.svg';

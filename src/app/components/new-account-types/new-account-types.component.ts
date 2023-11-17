@@ -28,7 +28,7 @@ export class NewAccountTypesComponent implements OnInit {
   constructor(private router: Router,
     private accountService: AccountService,
     private store: Store<MainState>) {
-      this.store.select(referenceIdSelector).subscribe(a => this.referenceId = a!);
+      this.store.select(referenceIdSelector).subscribe(a => this.referenceId = a ?? this.referenceId );
       this.store.select(custInfoSelector).subscribe(a => this.customerType = a?.CustomerType!);
   }
 

@@ -1,3 +1,31 @@
-<p>login works!</p>
+<div class="hmi-hd4" style="margin: 24px 0 24px 0;" translate>pages.login.header</div>
 
-<app-navigation-buttons (back)="back()" (next)="next()"></app-navigation-buttons>
+<form [formGroup]="formGroup">
+  <div class="row">
+    <mat-form-field appearance="outline" style="margin: 16px 0 16px 0;">
+      <mat-label>{{ 'pages.login.loginId' | translate }}</mat-label>
+      <img matPrefix src="assets/user.svg" width="24px" style="padding: 0 16px 0 16px;">
+      <input type="text" matInput formControlName="loginId">
+      <mat-error>Login ID is required</mat-error>
+    </mat-form-field>
+  </div>
+  <div class="row">
+    <mat-form-field appearance="outline" style="margin: 16px 0 16px 0;">
+      <mat-label>{{ 'pages.login.password' | translate }}</mat-label>
+      <img matPrefix src="assets/schwab-safe-icon.svg" width="24px" style="padding: 0 16px 0 16px;">
+      <input type="password" matInput formControlName="password">
+      <mat-error>Password is required</mat-error>
+    </mat-form-field>
+  </div>
+  <div class="row" style="margin-top:24px; text-align: left;">
+    <a href="javascript:;">{{ 'pages.login.forgot' | translate }}</a>
+  </div>
+  <div class="row" style="margin-top:16px; text-align: left;">
+    <a href="javascript:;">{{ 'pages.login.new' | translate }}</a>
+  </div>
+  <app-navigation-buttons 
+    nextText="{{'pages.login.login' | translate}}" 
+    [displaySafe]="false"
+    (back)="back()" (next)="next()">
+  </app-navigation-buttons>
+</form>
