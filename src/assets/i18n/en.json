@@ -123,7 +123,8 @@
       "remember": "Remember Login ID",
       "login": "Log In",
       "forgot": "Forgot ID or Password",
-      "new": "New user?"
+      "new": "New user?",
+      "unauthorized": "The provided LoginId and Password combination didn't match our records."
     }
   }
 }

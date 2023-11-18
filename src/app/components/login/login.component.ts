@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -9,18 +10,31 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent {
 
+  displayUnAuthorizedError: boolean = false;
+
   formGroup = new FormGroup({
     loginId: new FormControl('', {validators: Validators.required}),
     password: new FormControl('', {validators: Validators.required})
   });
 
-  constructor(private router: Router) { }
+  constructor(private router: Router,
+    private authService: AuthService) { }
 
   public next(): void {
     if (this.formGroup.valid) {
-      console.log(this.formGroup.controls.loginId.getRawValue());
-      console.log(this.formGroup.controls.password.getRawValue());
-      this.router.navigate(['open-or-enroll']);
+      this.authService.login(
+        this.formGroup.controls.loginId.getRawValue()!,
+        this.formGroup.controls.password.getRawValue()!).subscribe(a => {
+          if (a) {
+            this.displayUnAuthorizedError = false;
+            this.router.navigate(['open-or-enroll']);
+          } else {
+            this.displayUnAuthorizedError = true;
+          }
+        }, () => {
+          // Error scenario
+          this.displayUnAuthorizedError = true;
+        });
     }
   }
 

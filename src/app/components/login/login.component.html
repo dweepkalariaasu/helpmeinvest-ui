@@ -1,5 +1,15 @@
 <div class="hmi-hd4" style="margin: 24px 0 24px 0;" translate>pages.login.header</div>
 
+<!-- UnAuthorized Error Message -->
+<div class="row error-message" *ngIf="displayUnAuthorizedError">
+  <div class="col-2">
+    <mat-icon class="error-icon" aria-hidden="false" fontIcon="error"></mat-icon>
+  </div>
+  <div class="col-10">
+    <span translate>pages.login.unauthorized</span>
+  </div>
+</div>
+
 <form [formGroup]="formGroup">
   <div class="row">
     <mat-form-field appearance="outline" style="margin: 16px 0 16px 0;">

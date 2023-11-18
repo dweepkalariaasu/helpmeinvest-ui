@@ -1,0 +1,16 @@
+.error-message {
+    display: flexbox;
+    background-color: #fee7e8;
+    border-style: solid;
+    border-color: #c10b14;
+    border-width: 1px;
+    border-radius: 4px;
+    padding: 5px;
+    margin: 0 0 32px 0;
+    width: 260px;
+    justify-content: flex-start;
+}
+
+.error-icon {
+    color: #c10b14;
+}
