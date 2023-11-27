@@ -22,7 +22,7 @@ export class NewAccountTypesComponent implements OnInit {
   AccountTypeEnum = AccountType;
   selectedCard: RegistrationType = undefined!;
   data: Array<NewAccountType> | undefined;
-  referenceId = '654c536d587472b31db8c736';
+  referenceId = '656264bc0d77e4a81a2abc33';
   customerType = CustomerType.Prospect;
 
   constructor(private router: Router,
@@ -42,7 +42,7 @@ export class NewAccountTypesComponent implements OnInit {
 
   public next(): void {
     this.store.dispatch(saveRegistrationType({registrationType: this.selectedCard}));
-    alert('Selected AccountType is ' + this.selectCard + '. From this point onwards user will continue on account-open application, out of scope for this project');
+    alert('Selected AccountType is ' + this.selectedCard + '. From this point onwards user will continue on account-open application, out of scope for this project');
   }
 
   public back(): void {
