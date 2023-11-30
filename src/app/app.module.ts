@@ -20,6 +20,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { StoreModule } from '@ngrx/store';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { EffectsModule } from '@ngrx/effects';
 
 import { stateReducerMappings } from './store/main.state';
 import { AppRoutingModule } from './app-routing.module';
@@ -39,6 +40,8 @@ import { NewAccountTypesComponent } from './components/new-account-types/new-acc
 import { ExistingAccountsComponent } from './components/existing-accounts/existing-accounts.component';
 import { LoginComponent } from './components/login/login.component';
 import { AuthInterceptor } from './Interceptor/auth.interceptor';
+import { NavigationEffect } from './store/navigation/navigation.effects';
+import { ConstraintModule } from './constraints/constraint.module';
 
 export function TranslateLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -68,6 +71,8 @@ export function TranslateLoaderFactory(http: HttpClient) {
     ReactiveFormsModule,
     FormsModule,
     StoreModule.forRoot(stateReducerMappings),
+    EffectsModule.forRoot([NavigationEffect]),
+    ConstraintModule.forRoot(),
     TranslateModule.forRoot(
       {
         loader: {

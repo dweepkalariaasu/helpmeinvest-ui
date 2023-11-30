@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { MainState } from '../../store/main.state';
 import { custInfoSelector } from '../../store/application/application.selectors';
-import { saveGrossIncome } from 'src/app/store/application/application.actions';
+import { saveGrossIncome } from '../../store/application/application.actions';
 
 @Component({
   selector: 'app-gross-income',

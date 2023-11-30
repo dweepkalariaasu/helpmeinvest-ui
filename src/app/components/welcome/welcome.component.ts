@@ -1,5 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Store } from '@ngrx/store';
+import { MainState } from '../../store/main.state';
+import { saveChannelType } from '../../store/application/application.actions';
+import { ChannelType } from '../../enums/channel-type.enum';
+import { navigate } from '../../store/navigation/navigation.actions';
 
 @Component({
   selector: 'app-welcome',
@@ -10,7 +15,7 @@ export class WelcomeComponent implements OnInit {
 
   accountTiles: AccountTile[] = [];
 
-  constructor(private router: Router) {
+  constructor(private store: Store<MainState>) {
 
   }
 
@@ -76,11 +81,15 @@ export class WelcomeComponent implements OnInit {
   onLinkClick(linkText: string) {
 
     if (linkText.indexOf("Schwab Intelligent Portfolio") >= 0) {
-      this.router.navigate(['are-you-client']);
+      this.store.dispatch(saveChannelType({channelType: ChannelType.sip}));
+    } else if (linkText.indexOf("Get started") >= 0) {
+      this.store.dispatch(saveChannelType({channelType: ChannelType.novice}));
+    } else {
+      this.store.dispatch(saveChannelType({channelType: ChannelType.retail}));
     }
+
+    this.store.dispatch(navigate());
   }
-
-
 }
 
 export interface AccountTile {

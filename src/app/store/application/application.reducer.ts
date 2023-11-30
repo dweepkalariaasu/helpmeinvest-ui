@@ -1,9 +1,10 @@
-import { Action, createReducer, on } from "@ngrx/store";
-import { ApplicationState } from "./application.state";
-import * as actions from "./application.actions";
+import { Action, createReducer, on } from '@ngrx/store';
+import { ApplicationState } from './application.state';
+import * as actions from './application.actions';
 
 export const initialState: ApplicationState = {
   referenceId: undefined,
+  channelType: undefined,
   accountType: undefined,
   registrationType: undefined,
   operationType: undefined,
@@ -11,6 +12,14 @@ export const initialState: ApplicationState = {
 };
 
 export const _applicationReducer = createReducer(initialState,
+
+  on(actions.saveChannelType, (state: ApplicationState, payload) => {
+    const newState: ApplicationState = {
+      ...state,
+      channelType: payload.channelType
+    }
+    return newState;
+  }),
   on(actions.saveAccountType, (state: ApplicationState, payload) => {
     const newState: ApplicationState = {
       ...state,

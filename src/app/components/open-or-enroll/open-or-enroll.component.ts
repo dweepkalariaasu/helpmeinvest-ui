@@ -2,8 +2,9 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { MainState } from '../../store/main.state';
-import { OperationType } from 'src/app/enums/operation-type.enum';
-import { saveOperationType } from 'src/app/store/application/application.actions';
+import { OperationType } from '../../enums/operation-type.enum';
+import { saveOperationType } from '../../store/application/application.actions';
+import { back, navigate } from '../../store/navigation/navigation.actions';
 
 @Component({
   selector: 'app-open-or-enroll',
@@ -26,15 +27,11 @@ export class OpenOrEnrollComponent {
   
   public next(): void {
     this.store.dispatch(saveOperationType({operationType: this.selectedCard!}));
-    if (this.selectedCard == OperationType.open) {
-      this.router.navigate(['new-account-types']);
-    } else {
-      this.router.navigate(['existing-accounts'])
-    }
+    this.store.dispatch(navigate())
   }
 
   public back(): void {
-    this.router.navigate(['are-you-client']);
+    this.store.dispatch(back());
   }
   
 }

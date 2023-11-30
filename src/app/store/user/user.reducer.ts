@@ -1,34 +1,32 @@
-import { Action, createReducer, on } from "@ngrx/store";
-import { UserState } from "./user.state";
+import { Action, createReducer, on } from '@ngrx/store';
+import { UserState } from './user.state';
 import * as actions from './user.actions';
 
 export const initialUserState: UserState = {
-  firstName: '',
-  lastName: '',
-  dateOfBirth: '',
-  annualIncome: 0
+  isAuthenticated: undefined,
+  isEnroll: undefined,
+  isClient: undefined
 };
 
 export const _userReducer = createReducer(initialUserState,
-  on(actions.saveNames, (state: UserState, payload) => {
+  on(actions.saveIsAuthenticated, (state: UserState, payload) => {
     const newState: UserState = {
       ...state,
-      firstName: payload.firstName,
-      lastName: payload.lastName
+      isAuthenticated: payload.isAuthenticated
     }
     return newState;
   }),
-  on(actions.saveDob, (state: UserState, payload) => {
+  on(actions.saveIsEnroll, (state: UserState, payload) => {
     const newState: UserState = {
       ...state,
-      dateOfBirth: payload.dob
+      isEnroll: payload.isEnroll,
     }
     return newState;
   }),
-  on(actions.saveAnnualIncome, (state: UserState, payload) => {
+  on(actions.saveIsClient, (state: UserState, payload) => {
     const newState: UserState = {
       ...state,
-      annualIncome: payload.annualIncome
+      isClient: payload.isClient,
     }
     return newState;
   }),

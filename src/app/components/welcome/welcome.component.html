@@ -1,7 +1,7 @@
 <div class="hmi-ribbon-content">
   <p class="hmi-hd8" style="padding: 32px 64px 32px 64px;" translate>
     pages.welcome.help-me-decide
-    <a href="javascript:;" class="hmi-get-started" style="padding: 0 0 0 16px;" [routerLink]="['/situations']" translate>
+    <a href="javascript:;" class="hmi-get-started" style="padding: 0 0 0 16px;" (click)="onLinkClick('Get started')" translate>
       pages.welcome.get-started
     </a>
   </p>

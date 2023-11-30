@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
-import { CustomerType } from 'src/app/enums/customer-type.enum';
-import { saveCustomerType } from 'src/app/store/application/application.actions';
-import { MainState } from 'src/app/store/main.state';
+import { CustomerType } from '../../enums/customer-type.enum';
+import { saveCustomerType } from '../../store/application/application.actions';
+import { MainState } from '../../store/main.state';
+import { back, navigate } from '../../store/navigation/navigation.actions';
 
 @Component({
   selector: 'app-are-you-client',
@@ -14,21 +15,15 @@ export class AreYouClientComponent {
 
   public isClient: boolean | undefined;
 
-  constructor(private router: Router,
-    private store: Store<MainState>) {
-    // this.isClient = false;
+  constructor(private store: Store<MainState>) {
   }
   
   public next(): void {
     this.store.dispatch(saveCustomerType({customerType: this.isClient ? CustomerType.Client : CustomerType.Prospect}));
-    if (this.isClient) {
-      this.router.navigate(['login']);
-    } else {
-      this.router.navigate(['new-account-types']);
-    }
+    this.store.dispatch(navigate());
   }
 
   public back(): void {
-    this.router.navigate(['login']);
+    this.store.dispatch(back());
   }
 }

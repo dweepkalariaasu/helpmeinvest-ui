@@ -1,9 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { AccountType } from '../../enums/account-type.enum';
-import { RegistrationType } from '../../enums/registration-type.enum';
 import { ExistingAccount } from '../../models/ExistingAccount';
-import { AccountService } from 'src/app/services/account.service';
+import { AccountService } from '../../services/account.service';
 
 @Component({
   selector: 'app-existing-accounts',

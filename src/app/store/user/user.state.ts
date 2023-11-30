@@ -1,6 +1,5 @@
 export interface UserState {
-    firstName: string;
-    lastName: string;
-    dateOfBirth: string;
-    annualIncome: number;
+    isAuthenticated: boolean | undefined;
+    isEnroll: boolean | undefined;
+    isClient: boolean | undefined;
 }

@@ -6,9 +6,9 @@ import { RegistrationType } from '../../enums/registration-type.enum';
 import { NewAccountType } from '../../models/NewAccountType';
 import { AccountService } from '../../services/account.service';
 import { MainState } from '../../store/main.state';
-import { custInfoSelector, referenceIdSelector } from 'src/app/store/application/application.selectors';
-import { CustomerType } from 'src/app/enums/customer-type.enum';
-import { saveRegistrationType } from 'src/app/store/application/application.actions';
+import { custInfoSelector, referenceIdSelector } from '../../store/application/application.selectors';
+import { CustomerType } from '../../enums/customer-type.enum';
+import { saveRegistrationType } from '../../store/application/application.actions';
 
 @Component({
   selector: 'app-new-account-types',

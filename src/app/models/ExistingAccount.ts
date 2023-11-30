@@ -1,5 +1,5 @@
-import { AccountType } from "../enums/account-type.enum";
-import { RegistrationType } from "../enums/registration-type.enum";
+import { AccountType } from '../enums/account-type.enum';
+import { RegistrationType } from '../enums/registration-type.enum';
 
 export interface ExistingAccount {
     id: string;

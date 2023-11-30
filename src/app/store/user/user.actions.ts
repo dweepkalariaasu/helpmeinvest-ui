@@ -1,6 +1,5 @@
-import { createAction, props } from "@ngrx/store";
+import { createAction, props } from '@ngrx/store';
 
-
-export const saveNames = createAction('[Application] save Names', props<{ firstName: string, lastName: string }>());
-export const saveDob = createAction('[Application] Save Date of Birth', props<{ dob: string }>());
-export const saveAnnualIncome = createAction('[Application] Save Annual Income', props<{ annualIncome: number }>());
+export const saveIsAuthenticated = createAction('[User] Save IsAuthenticated', props<{ isAuthenticated: boolean }>());
+export const saveIsEnroll = createAction('[User] Save IsEnroll', props<{ isEnroll: boolean }>());
+export const saveIsClient = createAction('[User] Save IsClient', props<{ isClient: boolean }>());

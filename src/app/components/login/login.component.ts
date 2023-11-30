@@ -2,6 +2,10 @@ import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
+import { Store } from '@ngrx/store';
+import { MainState } from '../../store/main.state';
+import { saveIsAuthenticated } from '../../store/user/user.actions';
+import { back, navigate } from '../../store/navigation/navigation.actions';
 
 @Component({
   selector: 'app-login',
@@ -17,20 +21,17 @@ export class LoginComponent {
     password: new FormControl('', {validators: Validators.required})
   });
 
-  constructor(private router: Router,
-    private authService: AuthService) { }
+  constructor(private authService: AuthService,
+    private store: Store<MainState>) { }
 
   public next(): void {
     if (this.formGroup.valid) {
       this.authService.login(
         this.formGroup.controls.loginId.getRawValue()!,
         this.formGroup.controls.password.getRawValue()!).subscribe(a => {
-          if (a) {
-            this.displayUnAuthorizedError = false;
-            this.router.navigate(['open-or-enroll']);
-          } else {
-            this.displayUnAuthorizedError = true;
-          }
+          this.displayUnAuthorizedError = !a;
+          this.store.dispatch(saveIsAuthenticated({isAuthenticated: !!a}));
+          this.store.dispatch(navigate())
         }, () => {
           // Error scenario
           this.displayUnAuthorizedError = true;
@@ -39,6 +40,6 @@ export class LoginComponent {
   }
 
   public back(): void {
-    this.router.navigate(['are-you-client']);
+    this.store.dispatch(back())
   }
 }
